@@ -18,7 +18,7 @@ import com.luxkapotter.backend.models.User;
 import com.luxkapotter.backend.services.UserService;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/users")
 public class UserController {
     private final UserService userService;

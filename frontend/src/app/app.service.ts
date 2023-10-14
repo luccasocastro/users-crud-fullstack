@@ -14,7 +14,7 @@ export class AppService {
 
   // Add user
   addUser(user: User){
-    return this.http.post<User>(`${this.url}create`, user)
+    return this.http.post<User>(`${this.url}users/create`, user)
   }
 
   // Get users
@@ -24,12 +24,12 @@ export class AppService {
 
   // Get user by id
   getUserById(id: number): Observable<User>{
-    return this.http.get<User>(`${this.url}user/${id}`)
+    return this.http.get<User>(`${this.url}users/${id}`)
   }
 
   // Update user
   updateUser(id?: number, user?: any): Observable<any>{
-    return this.http.put<any>(`${this.url}user/update/${id}`, user)
+    return this.http.put<any>(`${this.url}users/update/${id}`, user)
   }
 
   // Delete user

@@ -9,31 +9,32 @@ import { AppService } from 'src/app/app.service';
 })
 export class ViewUserComponent implements OnInit {
 
-users: any[] | undefined
+  users: any[] | undefined;
   url: string = "http://localhost:8080/";
 
-  constructor(private service: AppService, private router: Router) { 
-   
+  constructor(private service: AppService, private router: Router) {
+
   }
 
   ngOnInit(): void {
     this.service.getUsers().subscribe(data => {
       this.users = data;
+      console.log(data);
     })
   }
 
-  deleteUser(id: number){
+  deleteUser(id: number) {
     this.service.deleteUser(id).subscribe(data => {
       this.users = this.users?.filter(user => user.id !== id);
     })
-    
-      setTimeout(()=>{
-        window.location.reload();
-      }, 100);
-  
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
+
   }
 
-  updateUser(id: number){
+  updateUser(id: number) {
     this.router.navigate(['update', id]);
   }
 

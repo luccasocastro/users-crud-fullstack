@@ -6,7 +6,7 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
 
 const routes: Routes = [
   { path: 'users', component: ViewUserComponent },
-  { path: 'users/create/', component: AddUserComponent },
+  { path: 'users/create', component: AddUserComponent },
   { path: 'user/update/:id', component: UpdateUserComponent },
 ];
 

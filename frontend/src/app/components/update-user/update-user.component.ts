@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from 'src/app/app.service';
 import { User } from 'src/app/models/user.model';
@@ -14,8 +14,7 @@ export class UpdateUserComponent implements OnInit {
   user?: User
   data: any
 
-
-  constructor(private service: AppService, private route: ActivatedRoute, private router : Router) { }
+  constructor(private service: AppService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
@@ -31,15 +30,15 @@ export class UpdateUserComponent implements OnInit {
     address: new FormControl('', [Validators.required])
   })
 
-  submit(){
+  submit() {
     this.data = this.form.value
     console.log(this.data)
-    
+
     this.service.updateUser(this.user?.id, this.data).subscribe(data => {
       console.log(data)
     })
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/users']);
   }
 
 }

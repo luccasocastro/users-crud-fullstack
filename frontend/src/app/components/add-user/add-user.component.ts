@@ -11,7 +11,7 @@ import { AppService } from 'src/app/app.service';
 export class AddUserComponent implements OnInit {
   constructor(private service: AppService, private router: Router) { }
   data: any
-  
+
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
@@ -20,13 +20,13 @@ export class AddUserComponent implements OnInit {
   })
   ngOnInit(): void {
   }
-  submit(){
+  submit() {
     this.data = this.form.value
     console.log(this.data)
 
     this.service.addUser(this.data).subscribe(data => {
       console.log(data)
     })
-    this.router.navigate(['/']);
+    this.router.navigate(['users']);
   }
 }
