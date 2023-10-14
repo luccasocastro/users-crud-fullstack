@@ -20,7 +20,8 @@ public class UserService {
     }
 
     public User findById(Long id){
-        return userRepository.findById(id).get();
+        return userRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Usuário não encontrado com o ID: " + id));
     }
 
     public List<User> findAll(){
